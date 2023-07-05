@@ -9,7 +9,7 @@ export function GetWeather() {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
 
-    const API_KEY = 'a1c78bc26f6332af3f0710d75b9ae1da';
+    const API_KEY = '07fc0e6279dd2ad5b7595ff0bf4ab81c';
 
     useEffect(() => {
         fetch(
@@ -36,6 +36,11 @@ export function GetWeather() {
             setInputText("");
         }
     };
+    
+let sunset = data.dt;
+let date = new Date();
+date.setTime(sunset);
+let sunset_date = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
 
     return (
         <div className="bg_img">
@@ -70,7 +75,7 @@ export function GetWeather() {
 
                             <div className="box">
                                 <p>Data</p>
-                                <h1>{data.dt}</h1>
+                                <h1>{sunset_date}</h1>
                             </div>
 
                             <div className="box">
